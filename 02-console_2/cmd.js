@@ -25,6 +25,9 @@ rl.on('line', (input) => {
         currTrial++;
         console.log(`Меньше`);
     }
+    else {
+        isNaN(input) && console.log(`введено НЕ число, допустимы только числа`);
+    }
     (currTrial >= numberTrials) && rl.close();
 });
   
