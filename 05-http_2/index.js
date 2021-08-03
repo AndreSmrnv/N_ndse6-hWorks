@@ -49,9 +49,7 @@ const rl = readline.createInterface({
 console.log(`Выбери город ${qweryCity.map((item,indx) => ` ${indx + 1} - ${item} `)} , 0 - выход`);
 
 0 
-rl.on('line', (input) => {
-
-    
+rl.on('line', (input) => {    
      
     if (!Number(input)) {
         console.log(`Спасибо за использование нашего сервиса погоды!`);
@@ -59,16 +57,13 @@ rl.on('line', (input) => {
     } else if (Number(input) <= qweryCity.length) {
         console.log(`Выбран город  ${qweryCity[--input]} `);
         const url = `http://api.weatherstack.com/current?access_key=${myAPIKey}&query=${qweryCity[input]}`;
-        getWeather(url);
-        
+        getWeather(url);    
         
     } 
     else {
         isNaN(input) && console.log(`введено НЕ число, допустимы только числа`);
-        Number(input) > (qweryCity.length) && console.log(`введено Не корректное число, допустимы только числа от  0 до ${qweryCity.length }`);
-    }
-    
-    
+        Number(input) > (qweryCity.length) && console.log(`введено Не корректное число, допустимы только числа от  0 до ${qweryCity.length}`);
+    }    
 });
   
 
