@@ -13,8 +13,6 @@ const qweryCity = [
 
 
 
-
-
 const getWeather = (url) => {
     const request = http.get(url, (response) => {
         const statusCode = response.statusCode
@@ -39,10 +37,6 @@ const getWeather = (url) => {
         console.error(`Got error: ${e.message}`)
     })
 }
-
-
-
-
 
 
 
@@ -77,7 +71,7 @@ rl.on('line', (input) => {
     
 });
   
-console.log(`Загадано число  ${num} `); 
+
 
 
 
