@@ -1,0 +1,1 @@
+weatherAPIKey=e6fd4b12ae9ea268294228ae5e7949df
