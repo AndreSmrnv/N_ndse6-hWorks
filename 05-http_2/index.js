@@ -1,15 +1,10 @@
 #!/usr/bin/env node
 const http = require('http')
 const readline = require('readline');
+var appConfig = require('./config');
 
-const myAPIKey = process.env.weatherAPIKey;
-
-const qweryCity = [
-    'London',
-    'Moscow',
-    'New York',
-    'Berlin'
-];
+const myAPIKey = appConfig.apiKey;
+const qweryCity = appConfig.qweryCity;
 
 
 
@@ -48,7 +43,6 @@ const rl = readline.createInterface({
 
 console.log(`Выбери город ${qweryCity.map((item,indx) => ` ${indx + 1} - ${item} `)} , 0 - выход`);
 
-0 
 rl.on('line', (input) => {    
      
     if (!Number(input)) {
@@ -56,9 +50,8 @@ rl.on('line', (input) => {
         rl.close();
     } else if (Number(input) <= qweryCity.length) {
         console.log(`Выбран город  ${qweryCity[--input]} `);
-        const url = `http://api.weatherstack.com/current?access_key=${myAPIKey}&query=${qweryCity[input]}`;
-        getWeather(url);    
-        
+        const url = `${appConfig.apiServer}/current?access_key=${myAPIKey}&query=${qweryCity[input]}`;
+        getWeather(url);           
     } 
     else {
         isNaN(input) && console.log(`введено НЕ число, допустимы только числа`);
