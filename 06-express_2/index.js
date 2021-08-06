@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 const express = require('express');
 const cors = require('cors');
+const formData = require("express-form-data");
 const {Book, User} = require('./models');
 const appConfig = require('./config');
 const stor = require('./store');
 
 const app = express();
+app.use(formData.parse());
 app.use(cors());
 
 app.post('/api/user/login', (req, res) => {
