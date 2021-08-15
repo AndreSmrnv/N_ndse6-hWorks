@@ -7,7 +7,7 @@ const stor = require('../../store');
 
 
 
-router.get('/', formData.parse(), (req, res) => {
+router.get('/', (req, res) => {
     const {books} = stor;
     res.render("books/index", {
         title: "Library",
@@ -26,7 +26,7 @@ router.get('/create', (req, res) => {
 });
 
 
-router.post('/create', formData.parse(),(req, res) => {
+router.post('/create', (req, res) => {
     const {books} = stor;
     const {title, description, authors, favorite, fileCover, fileName} = req.body;
 
@@ -67,7 +67,7 @@ router.get('/update/:id', (req, res) => {
     }
 });
 
-router.post('/update/:id', formData.parse(), (req, res) => {
+router.post('/update/:id', (req, res) => {
     const {books} = stor;
     const {title, description, authors, favorite, fileCover, fileName} = req.body;
     const {id} = req.params;
