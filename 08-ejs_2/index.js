@@ -9,6 +9,8 @@ const appConfig = require('./config');
 const app = express();
 //app.use(formData.parse());
 app.use(cors());
+app.set("view engine", "ejs");
+
 app.use('/', routes);
 
 app.use(errorMiddleware);
