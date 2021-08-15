@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const formData = require("express-form-data");
+const path = require('path');
 const {Book} = require('../../models');
 const fileMiddleware = require('../../middleware/file');
 const stor = require('../../store');
@@ -112,8 +113,8 @@ router.get('/:id/download',formData.parse(), (req, res) => {
     const idx = books.findIndex(el => el.id === id);
     
     if (idx !== -1) {
-        console.log('download ', books[idx].fileBook);
-        res.download(__dirname+`/../public/img/${books[idx].fileBook}`, `${books[idx].fileBook}`, err=>{        
+        console.log('download ', path.join(__dirname+`/../../public/img/${books[idx].fileBook}`));
+        res.download(__dirname+`/../../public/img/${books[idx].fileBook}`, `${books[idx].fileBook}`, err=>{        
             if (err){
                 res.status(404).json();
             }

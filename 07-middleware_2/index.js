@@ -9,6 +9,8 @@ const appConfig = require('./config');
 const app = express();
 //app.use(formData.parse());
 app.use(cors());
+app.use('/public', express.static(__dirname+"/public"));
+
 app.use('/', routes);
 
 app.use(errorMiddleware);
