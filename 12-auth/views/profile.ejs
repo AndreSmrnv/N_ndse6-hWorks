@@ -1,0 +1,22 @@
+
+
+<%- include("./partials/layout-start", {title: title}) %>
+<%- include("./partials/menu") %>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h4 class="display-4"><%= title %></h4>
+        <p>
+            ID: <%= user.id %><br />
+            Username: <%= user.username %><br />
+            Name: <%= user.displayName %><br />
+            <% if (user.email) { %>
+                Email: <%= user.email %><br />
+            <% } %>
+        </p>
+        <a href="/logout">Log out</a>
+    </div>
+</div>
+
+<%- include("./partials/layout-end") %>
+
